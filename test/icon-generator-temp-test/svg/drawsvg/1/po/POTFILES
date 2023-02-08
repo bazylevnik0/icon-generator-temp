@@ -1,0 +1,7 @@
+data/icon.generator.temp.test.svg.desktop.in
+data/icon.generator.temp.test.svg.appdata.xml.in
+data/icon.generator.temp.test.svg.gschema.xml
+src/icon_generator_temp_test_svg-window.ui
+src/main.c
+src/icon_generator_temp_test_svg-window.c
+
