@@ -1,15 +1,15 @@
 <b>maybe naive but whole concept:</b><br>
 main buffer and buffers for each element, when buffer of element changing then main buffer changing and redrawing<br> 
 
-<b>/drawsvg</b><br>
 i found this https://stackoverflow.com/questions/19452797/draw-a-svg-image-in-gtk3-from-svg-source-in-python/29118034#29118034 it is also about drawing but i not sure - this required or not<br>
 i mean maybe we need draw svg from buffer maybe we can just draw svg as a regular png and get buffer after<br>
 Gtk.image can draw from GdkPixbuf<br>
 https://docs.gtk.org/gtk3/class.Image.html<br>
 https://docs.gtk.org/gdk-pixbuf/class.Pixbuf.html<br>
 
-<b>temp:</b><br>
-adding png/svg to app:<br>
+<b>/svg</b><br>
+
+<b>adding png/svg to app:</b><br>
 
 maybe these ways:<br>
 1)Add image as in gnome tutorial and find method for add it to ui<br> 
@@ -41,13 +41,6 @@ also i tried:<br>
 <i>gtk_widget_set_parent( image , GTK_WIDGET(window));<br>
 gtk_widget_set_child_visible(GTK_WIDGET(window), TRUE);</i><br>
 also not showing and got error(something about - widget is not root)<br>
-
-
-or<br>
-
--something like a binding with ui template<br>
-https://developer.gnome.org/documentation/tutorials/beginners/getting_started/content_view.html<br>
-here something about binding but it is about how to set in xml and get it in code(as i understand)<br>
 -----------------------------------------------------------------------------<br>
 2:<br>
 here https://stackoverflow.com/questions/57654275/i-added-a-gtk-widget-to-the-main-window-ui-file-but-it-doesnt-show-up<br>
@@ -59,7 +52,8 @@ binding object(same as a 5)(folder 22):<br>
 https://developer.gnome.org/documentation/tutorials/beginners/getting_started/content_view.html<br>
 
 and next this
-here about adding functions as xml property and code(folder 212 and folder 222):<br>
-https://developer.gnome.org/documentation/tutorials/beginners/getting_started/opening_files.html<br>
-*this for next session - goal is change source of image to test.png
+here about adding functions as xml property and code:<br>
+https://developer.gnome.org/documentation/tutorials/beginners/getting_started/opening_files.html not sure about it<br>
+but i found working method, something like this https://developer.gnome.org/documentation/tutorials/beginners/getting_started/cursor_position.html<br>
+it s works (folder 221) it will be awesome - move show_function(change source of image) to app from window and also use relative way for path<br> 
 

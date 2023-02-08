@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/image/generator/temp/test/svg">
+    <file>image_generator_temp_test_svg-window.ui</file>
+    <file>gtk/help-overlay.ui</file>
+  </gresource>
+</gresources>

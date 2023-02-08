@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="image-generator-temp-test-svg">
+	<schema id="image.generator.temp.test.svg" path="/image/generator/temp/test/svg/">
+	</schema>
+</schemalist>
