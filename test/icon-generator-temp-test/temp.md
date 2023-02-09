@@ -55,5 +55,10 @@ and next this
 here about adding functions as xml property and code:<br>
 https://developer.gnome.org/documentation/tutorials/beginners/getting_started/opening_files.html not sure about it<br>
 but i found working method, something like this https://developer.gnome.org/documentation/tutorials/beginners/getting_started/cursor_position.html<br>
-it s works (folder 221) it will be awesome - move show_function(change source of image) to app from window and also use relative way for path<br> 
+it s works (folder 221)<br>
+*in 221 i use two methods for loading:<br>
+-absolute path<br>
+-gresource path - recomended but for my case i think this method needed generate gresource file when building app(i mean it is more question about structure of app and maybe it is must be realized in future)<br>
 
+<b>change image color and position</b><br>
+<b>combine two images and export</b><br>

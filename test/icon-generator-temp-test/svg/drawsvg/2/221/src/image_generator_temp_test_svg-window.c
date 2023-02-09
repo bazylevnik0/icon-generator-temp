@@ -24,9 +24,11 @@ struct _ImageGeneratorTempTestSvgWindow
   GtkApplicationWindow  parent_instance;
 
   /* Template widgets */
+  GtkGrid             *grid;
   GtkHeaderBar        *header_bar;
   GtkLabel            *label;
   GtkImage            *image;
+  GtkButton           *button;
 };
 
 
@@ -38,16 +40,22 @@ image_generator_temp_test_svg_window_class_init (ImageGeneratorTempTestSvgWindow
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
   gtk_widget_class_set_template_from_resource (widget_class, "/image/generator/temp/test/svg/image_generator_temp_test_svg-window.ui");
+  gtk_widget_class_bind_template_child (widget_class, ImageGeneratorTempTestSvgWindow, grid);
   gtk_widget_class_bind_template_child (widget_class, ImageGeneratorTempTestSvgWindow, header_bar);
   gtk_widget_class_bind_template_child (widget_class, ImageGeneratorTempTestSvgWindow, label);
   gtk_widget_class_bind_template_child (widget_class, ImageGeneratorTempTestSvgWindow, image);
+  gtk_widget_class_bind_template_child (widget_class, ImageGeneratorTempTestSvgWindow, button);
+}
+static GtkImage *temp;
+static void
+show_function(GtkImage *self){
+  gtk_image_set_from_resource (self,"/image/generator/temp/test/svg/test1.svg");
 }
 
-void
-show_function(GtkImage *self){
-  char *icon_name = gtk_image_get_icon_name (self);
-  g_print("%s\n", icon_name);
-  gtk_image_set_from_file (self, "/home/nik0/Projects/23/src/test.svg");
+static void
+reshow_function(GtkImage *self){
+  //gtk_image_set_from_file (GTK_IMAGE(self), "/home/nik0/Projects/221/src/test2.svg");
+  gtk_image_set_from_file (temp, "/home/nik0/Projects/221/src/test2.svg");
 }
 
 static void
@@ -55,4 +63,6 @@ image_generator_temp_test_svg_window_init (ImageGeneratorTempTestSvgWindow *self
 {
   gtk_widget_init_template (GTK_WIDGET (self));
   show_function(self->image);
+  temp = self->image;
+  g_signal_connect (GTK_BUTTON(self->button), "clicked", G_CALLBACK (reshow_function), NULL);
 }

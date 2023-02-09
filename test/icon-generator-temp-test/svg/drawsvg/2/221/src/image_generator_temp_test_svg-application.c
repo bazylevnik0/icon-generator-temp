@@ -60,9 +60,7 @@ image_generator_temp_test_svg_application_activate (GApplication *app)
   if (window == NULL)
     window = g_object_new (IMAGE_GENERATOR_TEMP_TEST_SVG_TYPE_WINDOW,
                            "application", app,
-                           NULL);
- 
-  
+                           NULL);  
   /* Ask the window manager/compositor to present the window. */
   gtk_window_present (window);
 }

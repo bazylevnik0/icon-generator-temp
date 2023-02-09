@@ -15,19 +15,39 @@
       </object>
     </child>
     <child>
-      <object class="GtkLabel" id="label">
-        <property name="label">Hello, World!</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-          <attribute name="scale" value="2"/>
-        </attributes>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImage" id="image">
-        <property name="visible">True</property>
-        <property name="icon-name">open-menu-symbolic</property>
-        <property name="icon-size">1</property>
+      <object id="grid" class="GtkGrid">
+        <child>
+          <object class="GtkLabel" id="label">
+            <layout>
+              <property name="column">0</property>
+              <property name="row">0</property>
+            </layout>
+            <property name="label">Hello, World!</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <attribute name="scale" value="2"/>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="image">
+            <layout>
+              <property name="column">0</property>
+              <property name="row">1</property>
+            </layout>
+            <property name="visible">True</property>
+            <property name="icon-size">2</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="button">
+            <layout>
+              <property name="column">0</property>
+              <property name="row">2</property>
+            </layout>
+            <property name="label">change</property>
+          </object>
+        </child>
       </object>
     </child>
   </template>
