@@ -60,7 +60,7 @@ it s works (folder 221)<br>
 -gresource path - recomended but for my case i think this method needed generate gresource file when building app(i mean it is more question about structure of app and maybe it is must be realized in future)<br>
 
 <b>/editsvg</b>
-<b>change image color and position</b><br>
+<b>change position, size, rotate</b><br>
 1)in previous test(/drawsvg) used gtk_image_set_from_resource it is works with:<br> 
 gtk_image_set_from_resource https://gitlab.gnome.org/GNOME/gtk/-/blob/main/gtk/gtkimage.c<br>
 it is using gdk_paintable_new_from_resource_scaled 
@@ -69,10 +69,16 @@ https://docs.gtk.org/gdk4/iface.Paintable.html<br>
 https://gitlab.gnome.org/GNOME/gtk/-/blob/main/gdk/gdkpaintable.c<br>
 but i not can find gdk_paintable_new_from_resource_scaled
 
-2)i heard something about css of widgets<br>
-and found this:<br>
+2)found this:<br>
 https://stackoverflow.com/questions/9848101/how-can-i-dynamically-change-the-color-of-an-element-in-an-svg-image-in-gtk<br>
-*i think i can repeat it but how to combine two svgs after editing also how handle and edit changes like a move in "canvas"<br>
+/*
+*about changing file:<br>
+g_file_new_for_path - GFile from path<br>
+g_file_create_readwrite - from GFile to GFileInputStream<br>
+*/
+for edit in svg possible using just transform attribute: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform<br>
 
 
 <b>combine two images and export</b><br>
+i think it is possible to have one main svg clear file and copy to this file objects from <g> of elements files
+*for prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main
