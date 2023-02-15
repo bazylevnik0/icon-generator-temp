@@ -39,11 +39,11 @@ i tried <i> gtk_widget_set_visible (image, TRUE);</i> but image not showing<br>
 also i tried:<br>
 <i>gtk_widget_set_parent( image , GTK_WIDGET(window));<br>
 gtk_widget_set_child_visible(GTK_WIDGET(window), TRUE);</i><br>
-also not showing and got error(something about - widget is not root)<br>
+also not showing and got the error(something about - widget is not root)<br>
 -----------------------------------------------------------------------------<br>
 2:<br>
 here https://stackoverflow.com/questions/57654275/i-added-a-gtk-widget-to-the-main-window-ui-file-but-it-doesnt-show-up<br>
-example of adding image as a object to xml<br>
+example of adding an image as a object to xml<br>
 it is works with example from stackoverflow(folder 21)<br>
 
 after this we maybe need this:<br>
@@ -57,28 +57,47 @@ but i found working method, something like this https://developer.gnome.org/docu
 it s works (folder 221)<br>
 *in 221 i use two methods for loading:<br>
 -absolute path<br>
--gresource path - recomended but for my case i think this method needed generate gresource file when building app(i mean it is more question about structure of app and maybe it is must be realized in future)<br>
+-gresource path - recomended but for my case i think this method needed generate a gresource file when building the app(i mean it is more question about structure of an app and maybe it is must be realized in future)<br>
 
 <b>/editsvg</b>
 <b>change position, size, rotate</b><br>
 1)in previous test(/drawsvg) used gtk_image_set_from_resource it is works with:<br> 
 gtk_image_set_from_resource https://gitlab.gnome.org/GNOME/gtk/-/blob/main/gtk/gtkimage.c<br>
-it is using gdk_paintable_new_from_resource_scaled 
+it is using gdk_paintable_new_from_resource_scaled<br>
 Paintable<br>
 https://docs.gtk.org/gdk4/iface.Paintable.html<br>
 https://gitlab.gnome.org/GNOME/gtk/-/blob/main/gdk/gdkpaintable.c<br>
-but i not can find gdk_paintable_new_from_resource_scaled
+but i not can find gdk_paintable_new_from_resource_scaled<br>
+*i mean maybe in under the hood of Image possible work with data of image
 
-2)found this:<br>
-https://stackoverflow.com/questions/9848101/how-can-i-dynamically-change-the-color-of-an-element-in-an-svg-image-in-gtk<br>
-/*
-*about changing file:<br>
-g_file_new_for_path - GFile from path<br>
-g_file_create_readwrite - from GFile to GFileInputStream<br>
-*/
+2)
 for edit in svg possible using just transform attribute: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform<br>
+found this:<br>
+https://stackoverflow.com/questions/9848101/how-can-i-dynamically-change-the-color-of-an-element-in-an-svg-image-in-gtk<br>
+
+*i used resource for file path in the previous test - but next methods is using GFile and GFile is using absolute path<br>
+21)<br>
+g_file_new_for_path - GFile from a path<br>
+g_file_create_readwrite - from GFile to GFileIOStream<br>
+*maybe it is possible working with GSeekable with g_seekable_seek() and  g_seekable_truncate()<br>
+with seekable(temp):<br>
+<i>
+GFile *file = g_file_new_for_path("/home/nik0/Projects/icon-generator-temp-test-editsvg/src/test.svg");<br>
+GFileIOStream *iostream = g_file_create_readwrite(file, G_FILE_CREATE_NONE, NULL, NULL);<br>
+g_seekable_seek(G_SEEKABLE(iostream), '<', G_SEEK_CUR, NULL, NULL );</i><br>
+*it is not works for me - the compilator writing something about: iostream not a seekable<br>
+*maybe g_seekable_seek called before succesfull creating stream and i must use async creating stream<br>
+22)<br>
+also exist input and output streams:<br>
+g_io_stream_get_input_stream - get input stream from GIOStream(GFileIOStream part of GIOStream)<br>
+g_io_stream_get_output_stream - get input stream from GIOStream(GFileIOStream part of GIOStream)<br>
+g_input_stream_read but it is works with an input stream<br>
+g_output_stream_write works with an output stream<br>
+*but i tried use GFileIOStream in get stream functions and get error about GFileIOStream not a GIOStream<br>
+23)read with gresource (exist method for create a read stream) then we create a temp file in the temp folder and working with the copy<br>
+
 
 
 <b>combine two images and export</b><br>
-i think it is possible to have one main svg clear file and copy to this file objects from <g> of elements files
-*for prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main
+i think it is possible to have an one main svg clear file and copy to this file objects from <g> of an elements files
+*for the prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main
