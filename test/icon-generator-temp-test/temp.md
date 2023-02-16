@@ -103,4 +103,7 @@ g_output_stream_write works with an output stream<br>
 
 /combine<br>
 i think it is possible to have an one main svg clear file and copy to this file objects from <g> of an elements files
-*for the prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main
+*for the prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main<br>
+https://www.w3.org/TR/SVG/struct.html<br>
+**also <g> it is groups and possible combine g elements - i mean just read struct and try all examples, and make notes about it<br>
+
