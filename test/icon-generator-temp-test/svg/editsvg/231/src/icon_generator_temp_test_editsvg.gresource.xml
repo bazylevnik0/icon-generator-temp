@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/example/App">
+    <file>icon_generator_temp_test_editsvg-window.ui</file>
+    <file>gtk/help-overlay.ui</file>
+    <file>test.svg</file>
+  </gresource>
+</gresources>

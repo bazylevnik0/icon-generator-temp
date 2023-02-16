@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=icon-generator-temp-test-editsvg
+Exec=icon-generator-temp-test-editsvg
+Icon=org.example.App
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

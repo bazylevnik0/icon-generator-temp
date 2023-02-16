@@ -95,9 +95,12 @@ g_input_stream_read but it is works with an input stream<br>
 g_output_stream_write works with an output stream<br>
 *but i tried use GFileIOStream in get stream functions and get error about GFileIOStream not a GIOStream<br>
 23)read with gresource (exist method for create a read stream) then we create a temp file in the temp folder and working with the copy<br>
+231)same(23) but using g_file_new_tmp(really temporary file)<br>
 
+/transform<br>
+0,1,2 - transform scale, rotation, position(translate)<br>
+3 - all atributes<br>
 
-
-<b>combine two images and export</b><br>
+/combine<br>
 i think it is possible to have an one main svg clear file and copy to this file objects from <g> of an elements files
 *for the prototype will be trouble with selecting elements because in element file they not have a groups and when they will copying to main file they will lost belonging to a "group" and now i don't know how possible to realize selecting paths,circles etc of selected elements in main file, maybe something like label or tags, id's when copying elements to main
