@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.10"/>
+  <template class="IconGeneratorTempTestSearchWindow" parent="GtkApplicationWindow">
+    <property name="can-focus">True</property>
+    <property name="default-width" >600</property>
+    <property name="default-height">300</property>
+    <child>
+       <object id="grid" class="GtkGrid">
+         <child>
+          <object class="GtkSearchEntry" id="search_entry">
+            <layout>
+              <property name="column">0</property>
+              <property name="row">0</property>
+            </layout>
+            <signal name="search-changed" handler="search_text_changed"/>
+          </object>
+        </child>
+       </object>
+    </child>
+  </template>
+</interface>
