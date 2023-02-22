@@ -25,6 +25,21 @@ not sure but as i understand this is just type of selection not about content an
 
 https://docs.gtk.org/gtk4/class.ListItemFactory.html<br>
 as i understand - factory is something like list of Gobjects with defined type<br>
-"GtkListItemFactory creates widgets for the items taken from a GListModel."
+"GtkListItemFactory creates widgets for the items taken from a GListModel."<br>
 possible create GtkListItemFactory with .ui https://docs.gtk.org/gtk4/class.BuilderListItemFactory.html<br>
 *not sure about need or not need but signals https://docs.gtk.org/gtk4/class.SignalListItemFactory.html<br>
+
+i am tried something(3) but i not really understand how it works and not can found examples and not understood docs about gridview<br>
+i asked in GTK chat and gtk-demos have this:<br>
+https://gitlab.gnome.org/GNOME/gtk/-/blob/main/demos/gtk-demo/listview_filebrowser.c<br>
+https://gitlab.gnome.org/GNOME/gtk/-/blob/main/demos/gtk-demo/listview_filebrowser.ui<br>
+
+c)grid with creating elements from array and array will scaning current folder<br>
+before i can write pseudo code for this:<br>
+create grid in ui<br>
+create array "elements" with URI(paths of svg files) and copy elements_temp, /usr/local/lib/image-generator/ or /lib/image-generator/<br>
+loop for place elements in grid (box with(name(label), preview(image))<br>
+if it possible handle click on grid and get element from grid, if not possible handle box of element(worse case)<br>
+search - search input, handle changes and filter array to temp array and rebuild grid<br>
+*also it is will not work good with > 100 elements(i mean memory) and maybe possible realize something like conveyer for scrolling, i mean load only few elements in screen<br>
+
