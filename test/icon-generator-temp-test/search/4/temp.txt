@@ -1,0 +1,27 @@
+lets start from ui:
+*ui called when builds in c
+	ui contains:
+		object GlistStore (id viewlist)			
+		object GtkSingleSelection(id selection_model)
+		object GtkWindow (id window)
+		*in c only window is called
+
+		viewlist:
+		*have property item-type - FileBrowserView
+			object FileBrowserView(1)
+			object FileBrowserView(2)
+			object FileBrowserView(3)
+			*FileBrowserView is structure from c 
+			 defined and setted functions like a set/get property
+			 also finalize - clearing, initizalization of class
+			 get_display_name, get_content_type, get_size, get_icon
+			 view_activated - something with info, guess activated when selected
+			**contain property factory with object GtkBuilderListItemFactory
+			  and with bytes with embeded xml with:
+			  	GtkImage - binding name gicon and function filebrowser_get_icon
+			  	GtkLabel - bindingname label and function filebrowser_get_display_name
+			  	both have lookup name item with(GtkListItem)
+			  	*some differents with properties buth same
+			  
+
+

@@ -33,6 +33,7 @@ i am tried something(3) but i not really understand how it works and not can fou
 i asked in GTK chat and gtk-demos have this:<br>
 https://gitlab.gnome.org/GNOME/gtk/-/blob/main/demos/gtk-demo/listview_filebrowser.c<br>
 https://gitlab.gnome.org/GNOME/gtk/-/blob/main/demos/gtk-demo/listview_filebrowser.ui<br>
+*(4)
 
 c)grid with creating elements from array and array will scaning current folder<br>
 before i can write pseudo code for this:<br>
