@@ -7,21 +7,48 @@ lets start from ui:
 		*in c only window is called
 
 		viewlist:
-		*have property item-type - FileBrowserView
+		have property item-type - FileBrowserView
 			object FileBrowserView(1)
 			object FileBrowserView(2)
 			object FileBrowserView(3)
-			*FileBrowserView is structure from c 
+			FileBrowserView is structure from c 
 			 defined and setted functions like a set/get property
 			 also finalize - clearing, initizalization of class
 			 get_display_name, get_content_type, get_size, get_icon
 			 view_activated - something with info, guess activated when selected
-			**contain property factory with object GtkBuilderListItemFactory
+			 *contain property factory with object GtkBuilderListItemFactory
 			  and with bytes with embeded xml with:
 			  	GtkImage - binding name gicon and function filebrowser_get_icon
 			  	GtkLabel - bindingname label and function filebrowser_get_display_name
 			  	both have lookup name item with(GtkListItem)
 			  	*some differents with properties buth same
+			  	
+		selection_model:
+		have property model and object GtkDirectoryList(id dirlist) with property attributes(name,icon,size...etc)
+		
+		window:
+		have the child titlebar with
+			GtkHeaderBar
+			GtkListView
+			GtkScrolledWindow
+			*for the app i think important only last
+			**lets start from the last
+		
+from the last:
+lets add GtkScrolledWindow 
+in .ui GtkScrolledWindow have a model selection_model it is mean we must add something with this name and what is it selection model
+selection model it is object in ui and it is contain properties and in .c with binded path (in our case path in /lib)
+lets add GtkSingleSelection in .ui and binding path in .c
+next in .ui GtkScrolledWindow is factory and orientation both with FileBrowserView it is mean we must understand what are each both and add FileBrowserView in .c
+orientation - it is something about orientation of view and property in FileBrowserView in .c
+factory - also property and it is GTK_TYPE_LIST_ITEM_FACTORY 
+lets try not touch it and just add FileBrowserView in .c
+in general it is what i not understood in (b3)
+*compilator saying  Error building template class 'IconGeneratorTempTestSearchWindow' for an instance of type 'IconGeneratorTempTestSearchWindow': .:0:0 Invalid type 'FileBrowserView'
+maybe we can just add viewlist objects
+**failure for me, i just tried copy example but this example about a new type in builder and as i sayed before i am not understood global concept of factory and lists/view
+lets continue (c) and write ourself(i mean with simple gtk widgets)
+ 
 			  
 
 

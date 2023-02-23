@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/icon/generator/temp/test/search">
+    <file>icon_generator_temp_test_search-window.ui</file>
+    <file>gtk/help-overlay.ui</file>
+    <file>elements.ui</file>
+  </gresource>
+</gresources>
