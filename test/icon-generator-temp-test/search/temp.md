@@ -44,3 +44,4 @@ if it possible handle click on grid and get element from grid, if not possible h
 search - search input, handle changes and filter array to temp array and rebuild grid<br>
 *also it is will not work good with > 100 elements(i mean memory) and maybe possible realize something like conveyer for scrolling, i mean load only few elements in screen<br>
 
+**first test , just adding hardcoded elements through .c to gridview(51)
