@@ -38,10 +38,14 @@ https://gitlab.gnome.org/GNOME/gtk/-/blob/main/demos/gtk-demo/listview_filebrows
 c)grid with creating elements from array and array will scaning current folder<br>
 before i can write pseudo code for this:<br>
 create grid in ui<br>
-create array "elements" with URI(paths of svg files) and copy elements_temp, /usr/local/lib/image-generator/ or /lib/image-generator/<br>
+create array "elements" with URI(paths of svg files) and copy to elements_temp, /usr/local/lib/image-generator/ or /lib/image-generator/<br>
 loop for place elements in grid (box with(name(label), preview(image))<br>
 if it possible handle click on grid and get element from grid, if not possible handle box of element(worse case)<br>
 search - search input, handle changes and filter array to temp array and rebuild grid<br>
 *also it is will not work good with > 100 elements(i mean memory) and maybe possible realize something like conveyer for scrolling, i mean load only few elements in screen<br>
 
-**first test , just adding hardcoded elements through .c to gridview(51)
+**first test , just adding hardcoded elements through .c to gridview(51)<br>
+**make uploading of all files in Pictures and viewing(52) - really with some conventions(not dynamic "elements", not localized "Pictures")<br>
+
+next to do:<br>
+make dynamic scrolling and searching<br>
