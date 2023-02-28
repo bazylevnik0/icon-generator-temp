@@ -35,7 +35,14 @@ char *elements[1000];
 char *elements_temp[1000];
 gint  elements_last_index = 0;
 GtkWidget *elements_widgets[1000];
+GtkWidget *image;
 gchar *path_library;
+
+static void
+element_clicked (GtkWidget *widget, gchar *data)
+{
+  g_print("%s\n",data);
+}
 
 static void
 search_text_changed (GtkSearchEntry *entry)
@@ -61,9 +68,12 @@ search_text_changed (GtkSearchEntry *entry)
       g_regex_match (regex, elements[i], 0, &match_info);
       if(g_match_info_matches (match_info))
       {
-          elements_widgets[i] = gtk_image_new();
+          image = gtk_image_new();
           pixbuf_temp = gdk_pixbuf_new_from_file_at_scale ( elements[i], 100, 100, TRUE, NULL );
-          elements_widgets[i] = gtk_image_new_from_pixbuf ( pixbuf_temp );
+          image = gtk_image_new_from_pixbuf ( pixbuf_temp );
+          elements_widgets[i] = gtk_button_new ();
+          gtk_button_set_child (GTK_BUTTON (elements_widgets[i]), image);
+          g_signal_connect(elements_widgets[i], "clicked", element_clicked, elements[i]);
           if((t % 10)==0 && t != 0)
           {
             gtk_grid_attach_next_to (grid_view,elements_widgets[i],elements_widgets[i-1],GTK_POS_BOTTOM,100,100);
@@ -77,9 +87,9 @@ search_text_changed (GtkSearchEntry *entry)
               gtk_grid_attach_next_to (grid_view,elements_widgets[i],elements_widgets[i-1],GTK_POS_LEFT,100,100);
             }
           }
-        gtk_widget_set_size_request (elements_widgets[i],100,100);
-        gtk_widget_set_visible (elements_widgets[i], TRUE);  
-        t++;
+          gtk_widget_set_size_request (elements_widgets[i],100,100);
+          gtk_widget_set_visible (elements_widgets[i], TRUE);  
+          t++;
       }
   }
   direction = 1;
@@ -145,9 +155,12 @@ icon_generator_temp_test_search_window_init (IconGeneratorTempTestSearchWindow *
   GdkPixbuf* pixbuf_temp;
   for(int i = 1; i < elements_last_index; i++)
   {
-      elements_widgets[i] = gtk_image_new();
+      image = gtk_image_new();
       pixbuf_temp = gdk_pixbuf_new_from_file_at_scale ( elements[i], 100, 100, TRUE, NULL );
-      elements_widgets[i] = gtk_image_new_from_pixbuf ( pixbuf_temp );
+      image = gtk_image_new_from_pixbuf ( pixbuf_temp );
+      elements_widgets[i] = gtk_button_new ();
+      gtk_button_set_child (GTK_BUTTON (elements_widgets[i]), image);
+      g_signal_connect(elements_widgets[i], "clicked", element_clicked, elements[i]);
       if((i % 10)==0)
       {
         gtk_grid_attach_next_to (self->grid_view,elements_widgets[i],elements_widgets[i-1],GTK_POS_BOTTOM,100,100);

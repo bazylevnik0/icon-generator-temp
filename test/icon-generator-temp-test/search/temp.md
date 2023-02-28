@@ -48,5 +48,5 @@ search - search input, handle changes and filter array to temp array and rebuild
 **make uploading of all files in Pictures and viewing(52) - really with some conventions(not dynamic "elements", not localized "Pictures")<br>
 
 next to do:<br>
-make dynamic scrolling and searching(53 but with some bugs - positions, i will fix it)
-and clickable(get path)<br>
+make dynamic scrolling and searching(53 but with some bugs - positions, if input like a one letter, i don't know why, but with normal queryies it is works)<br>
+and clickable(get path)(54) also i chenged Image element to Button element(for clickable reason)<br>
