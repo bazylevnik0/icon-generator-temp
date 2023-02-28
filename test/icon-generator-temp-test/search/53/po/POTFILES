@@ -1,0 +1,7 @@
+data/icon.generator.temp.test.search.desktop.in
+data/icon.generator.temp.test.search.appdata.xml.in
+data/icon.generator.temp.test.search.gschema.xml
+src/icon_generator_temp_test_search-window.ui
+src/main.c
+src/icon_generator_temp_test_search-window.c
+
